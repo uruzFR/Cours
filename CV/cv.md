@@ -9,7 +9,7 @@
 - github.com/exemple	
 
 ## Profil
-Actuellement en Terminale Bac Pro Systèmes Numériques option C au lycée Le Marais St-Thérèse à Saint-Étienne. Grâce à cette formation et à mes efforts personnels, j'ai acquis de nombreuses compétences.
+Actuellement en BTS CIEL à l'IRUP à Saint-Étienne. Grâce à cette formation et à mes efforts personnels, j'ai acquis de nombreuses compétences.
 
 Né le 12 Septembre 2006
 
