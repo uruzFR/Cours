@@ -15,8 +15,11 @@ Né le 12 Septembre 2006
 
 ## Expériences Professionnelles
 
+**09/2024** 
+- Alternance Base Prod (Clermont-Fd)
+
 **03/2024**
-- Stage de 4 semainesUSUAL EXPERTS (Clermont-Fd)
+- Stage de 4 semaines USUAL EXPERTS (Clermont-Fd)
  
 **11/2023**
 - Stage de 4 semaines 
