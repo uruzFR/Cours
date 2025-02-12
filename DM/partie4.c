@@ -2,16 +2,16 @@
 #include "commun.h"
 
 int main() {
-    uint32_t ip, masque, adresse_reseau;
+    uint32_t ip, masque, adresse_reseau, adresse_broadcast;
 
     // Saisir l'adresse IP
     if (saisir_adresse_ip(&ip) != 0) {
-        return 1; // Erreur de saisie
+        return 1;
     }
 
     // Saisir le masque de sous-réseau
     if (saisir_adresse_ip(&masque) != 0) {
-        return 1; // Erreur de saisie
+        return 1;
     }
 
     // Vérifier si le masque est valide
@@ -23,9 +23,12 @@ int main() {
     // Calcul de l'adresse réseau
     adresse_reseau = calculer_adresse_reseau(ip, masque);
 
-    // Affichage de l'adresse réseau
-    printf("Adresse réseau : ");
-    afficher_adresse_ip(adresse_reseau);
+    // Calcul de l'adresse de broadcast
+    adresse_broadcast = calculer_adresse_broadcast(adresse_reseau, masque);
+
+    // Affichage de l'adresse de broadcast
+    printf("Adresse broadcast : ");
+    afficher_adresse_ip(adresse_broadcast);
 
     return 0;
 }
