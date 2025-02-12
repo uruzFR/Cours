@@ -1,32 +1,24 @@
-#include <stdio.h>
 #include "commun.h"
 
 int main() {
-    uint32_t ip, masque, adresse_reseau, adresse_broadcast, nombre_hot;
+    char ip_str[16], masque_str[16];
+    struct in_addr ip, masque, reseau, broadcast;
+    
+    printf("Saisir une adresse IP : ");
+    scanf("%15s", ip_str);
+    printf("Saisir un masque de sous-réseau : ");
+    scanf("%15s", masque_str);
 
-    // Saisir l'adresse IP
-    if (saisir_adresse_ip(&ip) != 0) {
+    if (!valider_ip(ip_str, &ip) || !valider_masque(masque_str, &masque)) {
+        printf("Erreur : entrée invalide.\n");
         return 1;
     }
 
-    // Saisir le masque de sous-réseau
-    if (saisir_adresse_ip(&masque) != 0) {
-        return 1;
-    }
-
-    // Vérifier si le masque est valide
-    if (!valider_masque_sous_reseau(masque)) {
-        printf("Erreur : masque de sous-réseau invalide.\n");
-        return 1;
-    }
-
-    // Calcul des adresses
-    adresse_reseau = calculer_adresse_reseau(ip, masque);
-    adresse_broadcast = calculer_adresse_broadcast(adresse_reseau, masque);
-    nombre_hot = calculer_nombre_hot(adresse_reseau, adresse_broadcast);
-
-    // Affichage du résultat
-    printf("Nombre total d'hôtes disponibles : %u\n", nombre_hot);
-
+    calculer_adresse_reseau(ip, masque, &reseau);
+    calculer_adresse_broadcast(reseau, masque, &broadcast);
+    
+    printf("Adresse réseau : %s /%d\n", inet_ntoa(reseau), calculer_cidr(masque));
+    printf("Adresse broadcast : %s\n", inet_ntoa(broadcast));
+    
     return 0;
 }
